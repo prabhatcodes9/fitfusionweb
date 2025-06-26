@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFusion - AI-Powered Personal Fitness Companion</title>
+    <meta name="description" content="Transform your fitness journey with FitFusion's AI-powered personal trainer. Get personalized workout plans, diet recommendations, BMI/BMR calculations, and supplement guidance all in one comprehensive fitness platform.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-dumbbell"></i>
+                <span>FitFusion</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#calculators" class="nav-link">Calculators</a>
+                <a href="#supplements" class="nav-link">Supplements</a>
+                <a href="#diet-plans" class="nav-link">Diet Plans</a>
+                <a href="#workouts" class="nav-link">Workouts</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Transform Your Fitness Journey with <span class="gradient-text">AI-Powered</span> Personal Training</h1>
+                <p class="hero-description">Get personalized workout plans, diet recommendations, and expert guidance tailored to your unique fitness goals. Join thousands who've achieved their dream physique with FitFusion.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('calculators')">
+                        <i class="fas fa-calculator"></i>
+                        Start Your Assessment
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('workouts')">
+                        <i class="fas fa-play"></i>
+                        View Workout Plans
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Personalized Health Metrics</h3>
+                    <p>Advanced BMI & BMR calculations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculators Section -->
+    <section id="calculators" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Health & Fitness Calculators</h2>
+                <p class="section-description">Get accurate assessments of your current health status and daily nutritional needs</p>
+            </div>
+            
+            <div class="calculators-grid">
+                <!-- BMI Calculator -->
+                <div class="calculator-card">
+                    <div class="card-header">
+                        <i class="fas fa-weight"></i>
+                        <h3>BMI Calculator</h3>
+                        <p>Calculate your Body Mass Index</p>
+                    </div>
+                    <div class="card-body">
+                        <form id="bmi-form">
+                            <div class="form-group">
+                                <label for="bmi-weight">Weight (kg)</label>
+                                <input type="number" id="bmi-weight" step="0.1" min="1" max="300" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bmi-height">Height (cm)</label>
+                                <input type="number" id="bmi-height" step="0.1" min="50" max="250" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calculate BMI</button>
+                        </form>
+                        <div id="bmi-result" class="result hidden"></div>
+                    </div>
+                </div>
+
+                <!-- BMR Calculator -->
+                <div class="calculator-card">
+                    <div class="card-header">
+                        <i class="fas fa-fire"></i>
+                        <h3>BMR Calculator</h3>
+                        <p>Calculate your daily calorie needs</p>
+                    </div>
+                    <div class="card-body">
+                        <form id="bmr-form">
+                            <div class="form-group">
+                                <label for="bmr-weight">Weight (kg)</label>
+                                <input type="number" id="bmr-weight" step="0.1" min="1" max="300" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bmr-height">Height (cm)</label>
+                                <input type="number" id="bmr-height" step="0.1" min="50" max="250" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bmr-age">Age (years)</label>
+                                <input type="number" id="bmr-age" min="1" max="120" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bmr-gender">Gender</label>
+                                <select id="bmr-gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calculate BMR</button>
+                        </form>
+                        <div id="bmr-result" class="result hidden"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supplements Section -->
+    <section id="supplements" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Supplement Guide</h2>
+                <p class="section-description">Discover premium supplements from trusted Indian brands to enhance your fitness journey</p>
+            </div>
+            
+            <div class="supplements-grid" id="supplements-grid">
+                <!-- Supplements will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Diet Plans Section -->
+    <section id="diet-plans" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">AI Diet Plan Generator</h2>
+                <p class="section-description">Get personalized meal plans based on your goals and preferences</p>
+            </div>
+            
+            <div class="diet-plan-container">
+                <div class="diet-form-card">
+                    <h3>Create Your Personalized Diet Plan</h3>
+                    <form id="diet-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="diet-weight">Weight (kg)</label>
+                                <input type="number" id="diet-weight" step="0.1" min="1" max="300" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="diet-height">Height (cm)</label>
+                                <input type="number" id="diet-height" step="0.1" min="50" max="250" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="diet-age">Age (years)</label>
+                                <input type="number" id="diet-age" min="1" max="120" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="diet-gender">Gender</label>
+                                <select id="diet-gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="diet-goal">Goal</label>
+                                <select id="diet-goal" required>
+                                    <option value="">Select Goal</option>
+                                    <option value="fat_loss">Fat Loss</option>
+                                    <option value="muscle_building">Muscle Building</option>
+                                    <option value="maintenance">Maintenance</option>
+                                    <option value="weight_gain">Weight Gain</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="diet-type">Diet Type</label>
+                                <select id="diet-type" required>
+                                    <option value="">Select Diet Type</option>
+                                    <option value="vegetarian">Vegetarian</option>
+                                    <option value="non_vegetarian">Non-Vegetarian</option>
+                                    <option value="vegan">Vegan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Generate Diet Plan</button>
+                    </form>
+                </div>
+                <div id="diet-result" class="diet-result hidden"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workouts Section -->
+    <section id="workouts" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Workout Plans</h2>
+                <p class="section-description">Choose from our comprehensive collection of gym and home workout routines</p>
+            </div>
+            
+            <div class="workout-filters">
+                <button class="filter-btn active" data-filter="all">All Workouts</button>
+                <button class="filter-btn" data-filter="gym">Gym Workouts</button>
+                <button class="filter-btn" data-filter="home">Home Workouts</button>
+                <button class="filter-btn" data-filter="beginner">Beginner</button>
+                <button class="filter-btn" data-filter="professional">Professional</button>
+            </div>
+            
+            <div class="workouts-grid" id="workouts-grid">
+                <!-- Workouts will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Success Stories</h2>
+                <p class="section-description">Real transformations from our community members</p>
+            </div>
+            
+            <div class="testimonials-grid" id="testimonials-grid">
+                <!-- Testimonials will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>FitFusion</span>
+                    </div>
+                    <p>Transform your fitness journey with AI-powered personal training and nutrition guidance.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#calculators">Calculators</a></li>
+                        <li><a href="#supplements">Supplements</a></li>
+                        <li><a href="#diet-plans">Diet Plans</a></li>
+                        <li><a href="#workouts">Workouts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> info@fitfusion.com</p>
+                    <p><i class="fas fa-phone"></i> +91 99999 99999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FitFusion. All rights reserved. | College Project</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="#home" class="mobile-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#calculators" class="mobile-nav-item">
+            <i class="fas fa-calculator"></i>
+            <span>Calc</span>
+        </a>
+        <a href="#supplements" class="mobile-nav-item">
+            <i class="fas fa-pills"></i>
+            <span>Supplements</span>
+        </a>
+        <a href="#diet-plans" class="mobile-nav-item">
+            <i class="fas fa-utensils"></i>
+            <span>Diet</span>
+        </a>
+        <a href="#workouts" class="mobile-nav-item">
+            <i class="fas fa-dumbbell"></i>
+            <span>Workouts</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
